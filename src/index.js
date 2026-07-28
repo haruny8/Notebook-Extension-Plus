@@ -12,7 +12,7 @@ const buttonContainer = document.getElementById('notebook_plus_wand_container') 
 const buttonElement = document.createElement('div');
 const iconElement = document.createElement('i');
 const textElement = document.createElement('span');
-textElement.textContent = 'Open Notebook-Plus';
+textElement.textContent = 'Notebook-Plus';
 iconElement.classList.add('fa-solid', 'fa-clipboard');
 buttonElement.id = 'openNotebookPlusButton';
 buttonElement.classList.add('list-group-item', 'flex-container', 'flexGap5', 'interactable');
