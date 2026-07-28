@@ -1,8 +1,12 @@
+/* ============================================================
+   NOTEBOOK-PLUS — CONSOLIDATED STYLESHEET
+   (Duplicate selectors merged; later/!important values win)
+   ============================================================ */
+
 #notebookPlusPanel {
     display: none;
     overflow-y: auto;
     max-width: 90svw;
-    max-height: 90svh;
     min-width: 100px;
     min-height: 50px;
     border-radius: 10px;
@@ -13,11 +17,16 @@
     box-shadow: 0 0 10px var(--black70a);
     z-index: 3000;
     left: 0;
-    top: 0;
     margin: 0;
     right: unset;
     width: calc(((100svw - var(--sheldWidth)) / 2) - 1px);
     opacity: 0;
+    top: 33px !important;
+    bottom: 0 !important;
+    height: auto !important;
+    max-height: calc(100svh - 33px) !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
 }
 
 #notebookPlusPanel.flex {
@@ -87,8 +96,13 @@
     transform: translateY(-1px);
 }
 
+/* Merged with the "Active tabs" override further down the original file */
 #notebookPlusPanel .notebookPlusScopeButton.is-active {
-    color: var(--SmartThemeBodyColor);
+    background: #83A9D6 !important;
+    color: #1a1a1a !important;
+    box-shadow: 0 0 6px #83A9D6, 0 4px 6px rgba(131,169,214,0.4) !important;
+    border-color: #83A9D6 !important;
+    transform: translateY(-1px);
 }
 
 #notebookPlusPanel .notebookPlusScopeField {
@@ -114,14 +128,20 @@
     opacity: 0.7;
 }
 
+/* Merged with the "Active tabs" override further down the original file */
 #notebookPlusPanel .react-tabs__tab--selected {
-    background: color-mix(in srgb, var(--SmartThemeBlurTintColor) 70%, var(--black30a));
-    border-color: color-mix(in srgb, var(--SmartThemeBorderColor) 70%, var(--black50a));
-    color: var(--SmartThemeBodyColor);
+    background: #DEA1C3 !important;
+    border-color: #DEA1C3 !important;
+    color: #1a1a1a !important;
+    box-shadow: 0 0 6px #DEA1C3, 0 2px 6px rgba(222,161,195,0.4) !important;
 }
 
+/* Merged with the later sticky-toolbar .ql-formats override */
 #notebookPlusPanel .ql-toolbar.ql-snow .ql-formats {
-    margin-right: 5px;
+    margin-right: 5px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    vertical-align: middle !important;
 }
 
 #notebookPlusPanel .react-tabs__tab:focus:after {
@@ -143,11 +163,17 @@
     padding: 0;
 }
 
+/* Merged with the desktop v12 override further down the original file */
 #notebookPlusPanel .ql-editor {
     line-height: normal;
     padding: 10px;
     min-height: 100%;
-    box-sizing: border-box;
+    box-sizing: border-box !important;
+    text-align: justify !important;
+    overflow-x: hidden !important;
+    width: 100% !important;
+    word-wrap: break-word !important;
+    white-space: pre-wrap !important;
 }
 
 #notebookPlusPanel .ql-editor.ql-blank::before {
@@ -244,16 +270,24 @@
     border-color: var(--SmartThemeBodyColor);
 }
 
-#notebookPlusPanel .ql-toolbar.ql-snow button.ql-copy::after {
-    display: block;
-    font-family: 'Font Awesome 6 Free';
-    font-size: 14px;
-    font-weight: 900;
-    line-height: 1;
-}
-
+/* Merged: appeared 3 times in the original (base content rule,
+   base font rule, and the v12 !important centering rule) */
 #notebookPlusPanel .ql-toolbar.ql-snow button.ql-copy::after {
     content: '\f0c5';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 14px !important;
+    line-height: 1 !important;
+    height: 1px !important;
+    width: 25px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    vertical-align: middle !important;
+    position: relative !important;
+    top: 0 !important;
 }
 
 #notebookPlusPanel .ql-snow.ql-toolbar button:hover,
@@ -303,13 +337,15 @@
     stroke: var(--SmartThemeBodyColor);
 }
 
+/* Merged with the desktop v12 override further down the original file */
 #notebookPlusPanel .ql-container {
     font-size: var(--mainFontSize);
-    min-height: 15em;
-    height: 15em;
-    resize: vertical;
-    overflow-x: hidden;
-    overflow-y: auto;
+    height: auto !important;
+    min-height: 15em !important;
+    resize: none !important;
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
+    box-sizing: border-box !important;
 }
 
 #notebookPlusPanel .ql-clipboard {
@@ -325,39 +361,7 @@
     padding-left: 0.5em;
 }
 
-/* ============================================================
-   NOTEBOOK-PLUS - COMPLETE SNIPPET v12
-   ============================================================ */
-
-/* Desktop layout */
-#notebookPlusPanel {
-    top: 33px !important;
-    bottom: 0 !important;
-    height: auto !important;
-    max-height: calc(100svh - 33px) !important;
-    overflow-x: hidden !important;
-    box-sizing: border-box !important;
-}
-
-#notebookPlusPanel .ql-container {
-    height: auto !important;
-    min-height: 15em !important;
-    resize: none !important;
-    overflow-x: hidden !important;
-    overflow-y: visible !important;
-    box-sizing: border-box !important;
-}
-
-#notebookPlusPanel .ql-editor {
-    text-align: justify !important;
-    overflow-x: hidden !important;
-    box-sizing: border-box !important;
-    width: 100% !important;
-    word-wrap: break-word !important;
-    white-space: pre-wrap !important;
-}
-
-/* Sticky toolbar with copy and clean controls reordered. */
+/* ── Sticky toolbar (v12) ─────────────────────────────────── */
 #notebookPlusPanel .ql-toolbar.ql-snow {
     position: sticky !important;
     top: 0 !important;
@@ -368,13 +372,6 @@
     display: flex !important;
     flex-wrap: wrap !important;
     align-items: center !important;
-}
-
-#notebookPlusPanel .ql-toolbar.ql-snow .ql-formats {
-    margin-right: 5px !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    vertical-align: middle !important;
 }
 
 #notebookPlusPanel .ql-toolbar.ql-snow .ql-formats button {
@@ -404,21 +401,6 @@
     padding: 1px 4px !important;
 }
 
-#notebookPlusPanel .ql-toolbar.ql-snow button.ql-copy::after {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    font-size: 14px !important;
-    line-height: 1 !important;
-    height: 1px !important;
-    width: 25px !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    vertical-align: middle !important;
-    position: relative !important;
-    top: 0 !important;
-}
-
 /* Color picker opens downward and remains anchored to the toolbar. */
 #notebookPlusPanel .ql-color-picker .ql-picker-options {
     top: 100% !important;
@@ -434,27 +416,6 @@
 
 #notebookPlusPanel .ql-picker-options {
     z-index: 99999 !important;
-}
-
-/* Active tabs */
-#notebookPlusPanel .notebookPlusScopeButton.is-active {
-    background: #83A9D6 !important;
-    color: #1a1a1a !important;
-    box-shadow: 0 0 6px #83A9D6, 0 4px 6px rgba(131,169,214,0.4) !important;
-    border-color: #83A9D6 !important;
-    transform: translateY(-1px);
-}
-
-#notebookPlusPanel .react-tabs__tab--selected {
-    background: #DEA1C3 !important;
-    color: #1a1a1a !important;
-    box-shadow: 0 0 6px #DEA1C3, 0 2px 6px rgba(222,161,195,0.4) !important;
-    border-color: #DEA1C3 !important;
-}
-
-#notebookPlusPanel .react-tabs__tab,
-#notebookPlusPanel .notebookPlusScopeButton {
-    transition: all 0.1s ease;
 }
 
 /* Mobile layout */
